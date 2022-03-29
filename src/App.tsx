@@ -3,23 +3,23 @@ import './App.css';
 import {personas} from "./modelo/personas";
 import {quienEsMayor} from "./utiles/utiles";
 
+
 function App() {
-  // Las constantes edades, personas, y la funcion quienEsMayor no se encuentran tipificadas
-  // No te olvides de renombrar los archivos para soportar los tipos
-  const edades = [15, 16, 23, 16]
+  const edades: number[] = [15, 16, 23, 16]
 
   return (
     <div className="App">
         <div>
             <h3>Personas</h3>
-            {personas.map(persona => {return (
-              <div key={persona}>{persona}</div>
+            {personas.map((persona: string, index: number): JSX.Element  => {
+              return (
+              <div key={`${index}-${persona}`}>{persona}</div>
             )}) }
         </div>
         <div>
             <h3>Edades</h3>
-            {edades.map(edad => {return (
-                <div key={edad}>{edad}</div>
+            {edades.map((edad: number, index:number): JSX.Element => {return (
+                <div key={`${index}-${edad}`}>{edad}</div>
             )}) }
         </div>
         <div>
